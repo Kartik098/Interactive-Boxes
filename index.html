@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+
+</head>
+<body>
+
+<div class="container">
+  <h2 class="bundle-title"><span>Bundle & Save</span></h2>
+
+<form id="bogoForm">
+  <div class="option-box">
+    <label>
+      <input type="radio" name="offer" value="1" data-price="21.60">
+       <div class="option-content">
+      <div class="option-row">
+        <strong>1 Pair</strong>
+        <del>$24.00 USD</del>
+      </div>
+      <div class="option-row">
+        <span class="new-price">$21.60 USD</span>
+        <span class="discount-badge">10% Off</span>
+      </div>
+    </div>
+    </label>
+    <div class="dropdowns" id="dropdowns-1"></div>
+  </div>
+
+  <div class="option-box">
+    <label>
+      <input type="radio" name="offer" value="2" data-price="38.40">
+       <div class="option-content">
+      <div class="option-row">
+        <strong>2 Pair</strong>
+        <del>$48.00 USD</del>
+      </div>
+      <div class="option-row">
+        <span class="new-price">$38.40 USD</span>
+        <span class="discount-badge">20% Off</span>
+      </div>
+    </div>
+    
+    </label>
+    <div class="dropdowns" id="dropdowns-2"></div>
+  </div>
+
+  <div class="option-box">
+    <label>
+      <input type="radio" name="offer" value="3" data-price="50.40">
+      <div class="option-content">
+      <div class="option-row">
+        <strong>3 Pair</strong>
+        <del>$72.00 USD</del>
+      </div>
+      <div class="option-row">
+        <span class="new-price">$50.40 USD</span>
+        <span class="discount-badge">30% Off</span>
+      </div>
+    </div>
+    </label>
+    <div class="dropdowns" id="dropdowns-3"></div>
+  </div>
+ <div class="option-row">
+     <p class="shipping-note">Free 2 Day Shipping</p>
+  <p><strong>Total:</strong> $<span id="total">0.00</span> USD</p>
+ </div>
+  
+  <button type="submit">Add to Cart</button>
+</form>
+<p class="powered">© Powered by Pumper</p>
+</div>
+
+<script>
+  const form = document.getElementById('bogoForm');
+  const totalSpan = document.getElementById('total');
+
+  const sizes = ["S", "M", "L", "XL"];
+  const colors = ["Black", "White", "Red", "Blue"];
+
+  form.offer.forEach(radio => {
+    radio.addEventListener('change', e => {
+      const selectedVal = e.target.value;
+      const selectedPrice = e.target.dataset.price;
+      totalSpan.textContent = parseFloat(selectedPrice).toFixed(2);
+
+       document.querySelectorAll('.option-box').forEach(box => {
+      box.classList.remove('selected');
+    });
+
+    // Add 'selected' class to the parent box of the selected radio
+    e.target.closest('.option-box').classList.add('selected');
+      // Clear all dropdowns
+      [1, 2, 3].forEach(i => {
+        document.getElementById(`dropdowns-${i}`).innerHTML = '';
+      });
+
+      // Create dropdowns for the selected one
+      const dropdownContainer = document.getElementById(`dropdowns-${selectedVal}`);
+      for (let i = 0; i < selectedVal; i++) {
+  const pairDiv = document.createElement('div');
+  pairDiv.className = 'pair-options';
+
+  const sizeSelect = document.createElement('select');
+  sizes.forEach(size => {
+    const opt = document.createElement('option');
+    opt.value = size;
+    opt.text = `Size: ${size}`;
+    sizeSelect.appendChild(opt);
+  });
+
+  const colorSelect = document.createElement('select');
+  colors.forEach(color => {
+    const opt = document.createElement('option');
+    opt.value = color;
+    opt.text = `Color: ${color}`;
+    colorSelect.appendChild(opt);
+  });
+
+  pairDiv.appendChild(sizeSelect);
+  pairDiv.appendChild(colorSelect);
+  dropdownContainer.appendChild(pairDiv);
+}
+
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+.container {
+    margin: 0 auto;
+    width: 25%;
+}
+.option-box {
+      border: 1px solid #ccc;
+      
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .selected {
+      border-color: blue;
+    }
+  .dropdowns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+.pair-options {
+      margin-top: 10px;
+    width: 50%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.option-box {
+  border: 2px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+/* Highlight the selected box */
+input[type="radio"]:checked ~ .option-box,
+.option-box.selected {
+  border-color: #00b67a;
+  background-color: #e6fff2;
+  box-shadow: 0 0 10px rgba(0, 182, 122, 0.2);
+}
+
+/* Style the discount badge */
+.option-box span {
+  background-color: #ffe8ec;
+  color: #d60034;
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Style total price section */
+#total {
+  font-weight: bold;
+  color: #00b67a;
+}
+
+/* Button style */
+button[type="submit"] {
+    width: 100%;
+  background-color: #00b67a;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #009a66;
+}
+.option-box.selected {
+  border-color: #00b67a; /* Match this to your Add to Cart button color */
+  background-color: #e6fff2;
+  box-shadow: 0 0 5px rgba(0, 182, 122, 0.3);
+}
+.dropdowns {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background-color: #f0fdf8; /* light minty green background */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.pair-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pair-options label {
+  font-weight: bold;
+  margin-right: 4px;
+  min-width: 30px;
+}
+
+.pair-options select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 100px;
+  appearance: none;
+  background: white url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+.option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 10px;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.discount-badge {
+  background-color: #ffe8ec;
+  color: #d60034;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.new-price {
+  font-weight: bold;
+  color: #333;
+  padding: 0 !important;
+}
+
+.bundle-title {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  line-height: 0.1em;
+  margin: 30px 0 20px;
+  width: 100%;
+}
+
+.bundle-title span {
+  background: white; /* match your page background */
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #00704a;
+}
+
+
+.total-row {
+  text-align: right;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.shipping-note {
+  color: #00b67a;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.powered {
+  text-align: right;
+  font-size: 12px;
+  color: #999;
+  margin-top: 15px;
+}
